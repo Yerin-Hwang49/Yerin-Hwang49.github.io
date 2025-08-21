@@ -3,24 +3,295 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — 링크</title>
-  <meta name="description" content="CV link page" />
+  <title>Yerin Hwang — NLP & LLMs</title>
+  <meta name="description" content="Yerin Hwang — NLP & LLMs, Publications, CV, Contact" />
+  <meta name="color-scheme" content="light dark" />
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 2rem; line-height: 1.6; }
-    .wrap { max-width: 720px; margin: 0 auto; }
-    a { text-decoration: none; }
-    .btn { display: inline-block; padding: .8rem 1rem; border: 1px solid #e2e8f0; border-radius: .75rem; }
+    :root{
+      --accent:#0B3D91; --fg:#0f172a; --muted:#475569; --line:#e2e8f0; --bg:#fff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.65; color:var(--fg); background:var(--bg)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width: 980px; margin:0 auto; padding:24px}
+    header.site{
+      position: sticky; top:0; background:rgba(255,255,255,.85); backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line); z-index:10;
+    }
+    .site-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    nav a{margin-left:16px; font-weight:600; color:var(--muted)}
+    nav a:hover{color:var(--accent)}
+    .hero{padding: 40px 0 12px}
+    .hero h1{margin:.2rem 0; font-size: clamp(28px, 4vw, 44px)}
+    .sub{color:var(--muted)}
+    .chip{display:inline-block; padding:.25rem .6rem; border:1px solid var(--line); border-radius:999px; margin-right:.4rem; margin-bottom:.4rem; font-size:.9rem}
+    section{padding: 28px 0}
+    h2{margin:0 0 12px; font-size: clamp(20px, 3vw, 26px)}
+    .card{border:1px solid var(--line); border-radius:14px; padding:16px}
+    ul.clean{list-style:none; padding:0; margin:0}
+    .pub-year{font-weight:700; margin:20px 0 12px}
+    .pub-item{margin:10px 0}
+    .pub-title{font-weight:700}
+    .btn{display:inline-block; padding:.6rem .9rem; border:1px solid var(--line); border-radius:10px}
+    .grid{display:grid; gap:16px}
+    .grid-2{grid-template-columns:1fr}
+    @media (min-width: 860px){ .grid-2{grid-template-columns:1fr 1fr} }
+    footer{border-top:1px solid var(--line); padding:16px 0; color:var(--muted); font-size:.95rem}
+    details{border:1px dashed var(--line); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,0.02)}
+    details>summary{cursor:pointer; font-weight:600}
+    .muted{color:var(--muted)}
+    .kicker{font-weight:700; letter-spacing:.02em; color:var(--muted)}
+    .row{display:flex; gap:14px; flex-wrap:wrap}
+    .row > div{flex:1 1 280px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>CV</h1>
-    <p>아래 링크를 복사해서 LinkedIn 소개글(About)이나 Featured에 붙여넣으세요.</p>
-    <p><a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">📄 CV_YERINHWANG.pdf</a></p>
-    <hr />
-    <p style="color:#475569; font-size: 0.95rem;">
-      Last updated: 2025-08-21
-    </p>
-  </div>
+  <!-- 상단 바 -->
+  <header class="site">
+    <div class="container site-inner">
+      <div><a href="#top" style="font-weight:800; color:var(--fg)">Yerin Hwang</a></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+        <a href="#materials">Materials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- 히어로 -->
+    <section class="hero">
+      <h1>Yerin Hwang</h1>
+      <p class="sub">Ph.D. Candidate · NLP &amp; LLMs</p>
+      <p class="muted">Rm. 314, Bldg. 133, Seoul National University, Seoul, Republic of Korea</p>
+      <p style="font-style:italic; margin:.5rem 0 1rem">“Enhancing reliability and interpretability in LLM judgment tasks.”</p>
+      <p>
+        <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">📄 CV</a>
+        <a class="btn" href="mailto:dpfls589@snu.ac.kr">✉️ Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/yerin-hwang-a6445627a" target="_blank" rel="noreferrer">in LinkedIn</a>
+      </p>
+      <div style="margin-top:8px">
+        <span class="chip">LLM-as-a-Judge</span>
+        <span class="chip">Bias &amp; Robustness</span>
+        <span class="chip">Epistemic Markers / Uncertainty</span>
+        <span class="chip">Long-Context Reasoning</span>
+        <span class="chip">RAG</span>
+        <span class="chip">Dialogue Generation</span>
+        <span class="chip">Knowledge Graphs</span>
+      </div>
+    </section>
+
+    <!-- 소개 -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          SNU MILAB 박사과정으로, 대형언어모델(LLM)의 <b>평가와 견고성(robustness)</b>을 연구합니다.
+          특히 LLM-based evaluation이 <b>epistemic markers/불확실성 표현</b>에 얼마나 민감한지 분석하고,
+          <b>LLM-as-a-Judge</b>의 신뢰성·해석가능성을 높이는 방법을 탐색합니다.
+        </p>
+        <p>
+          또한 지식 그래프를 활용한 <b>자동 대화 데이터 생성</b>과 문서 기반 <b>context-aware QA</b> 데이터셋 생성에도 관심이 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 하이라이트 퍼블리케이션 -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <p class="kicker">Selected (최근)</p>
+      <div class="grid grid-2" style="margin-bottom:16px">
+        <div class="card">
+          <div class="pub-title">Fooling the LVLM Judges: Visual Biases in LVLM-Based Evaluation</div>
+          <div class="muted">Y. Hwang*, D. Lee*, K. Min, T. Kang, Y. Kim, K. Jung · <i>EMNLP 2025</i></div>
+          <p class="muted" style="margin:.4rem 0 0">LVLM judge의 시각적 편향을 체계 분석.</p>
+        </div>
+        <div class="card">
+          <div class="pub-title">Can You Trick the Grader? Adversarial Persuasion of LLM Judges</div>
+          <div class="muted">Y. Hwang, D. Lee, T. Kang, Y. Kim, K. Jung · <i>Findings of EMNLP 2025</i></div>
+          <p class="muted" style="margin:.4rem 0 0">설득적 어택으로 LLM 심사자 판정 교란.</p>
+        </div>
+        <div class="card">
+          <div class="pub-title">LLMs can be easily Confused by Instructional Distractions</div>
+          <div class="muted">Y. Hwang, Y. Kim, J. Koo, T. Kang, H. Bae, K. Jung · <i>ACL 2025</i></div>
+          <p class="muted" style="margin:.4rem 0 0">instructional distraction에 대한 취약성 실증.</p>
+        </div>
+        <div class="card">
+          <div class="pub-title">Are LLM-Judges Robust to Expressions of Uncertainty?</div>
+          <div class="muted">D. Lee*, Y. Hwang*, Y. Kim, J. Park, K. Jung · <i>NAACL 2025</i></div>
+          <p class="muted" style="margin:.4rem 0 0">불확실성 표현(확신 표지)이 LLM 판정에 미치는 영향.</p>
+        </div>
+      </div>
+
+      <!-- 전체 목록 -->
+      <details open>
+        <summary>전체 목록 보기</summary>
+        <div style="margin-top:12px"></div>
+
+        <div class="pub-year">International Conferences &amp; Workshops</div>
+        <ul class="clean">
+          <li class="pub-item"><span class="pub-title">Fooling the LVLM Judges: Visual Biases in LVLM-Based Evaluation</span> — Y. Hwang*, D. Lee*, K. Min, T. Kang, Y. Kim, K. Jung. <i>EMNLP 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">Can You Trick the Grader? Adversarial Persuasion of LLM Judges</span> — Y. Hwang, D. Lee, T. Kang, Y. Kim, K. Jung. <i>Findings of EMNLP 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">LLMs can be easily Confused by Instructional Distractions</span> — Y. Hwang, Y. Kim, J. Koo, T. Kang, H. Bae, K. Jung. <i>ACL 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">Are LLM-Judges Robust to Expressions of Uncertainty? Investigating the Effect of Epistemic Markers on LLM-based Evaluation</span> — D. Lee*, Y. Hwang*, Y. Kim, J. Park, K. Jung. <i>NAACL 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">SWITCH: Studying with Teacher for Knowledge Distillation of Large Language Models</span> — J. Koo, Y. Hwang, Y. Kim, T. Kang, H. Bae, K. Jung. <i>Findings of NAACL 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">MP2D: An Automated Topic Shift Dialogue Generation Framework Leveraging Knowledge Graphs</span> — Y. Hwang, Y. Kim, Y. Jang, J. Bang, H. Bae, K. Jung. <i>EMNLP 2024</i>.</li>
+          <li class="pub-item"><span class="pub-title">Kosmic: Korean Text Similarity Metric Reflecting Honorific Distinctions</span> — Y. Hwang, Y. Kim, J. Bang, H. Bae, H. Lee, K. Jung. <i>COLING 2024</i>.</li>
+          <li class="pub-item"><span class="pub-title">Dialogizer: Context-aware Conversational-QA Dataset Generation from Textual Sources</span> — Y. Hwang*, Y. Kim*, H. Bae, H. Lee, J. Bang, K. Jung. <i>EMNLP 2023</i>.</li>
+          <li class="pub-item"><span class="pub-title">PR-MCS: Perturbation Robust Metric for Multilingual Image Captioning</span> — Y. Kim, Y. Hwang, H. Yun, S. Yoon, T. Bui, K. Jung. <i>Findings of EMNLP 2023</i>.</li>
+          <li class="pub-item"><span class="pub-title">Injecting Comparison Skills in Task-Oriented Dialogue Systems for Database Search Results Disambiguation</span> — Y. Kim*, Y. Hwang*, J. Shin, H. Bae, K. Jung. <i>Findings of ACL 2023</i>.</li>
+          <li class="pub-item"><span class="pub-title">Improving Cross-Modal Attention via Object Detection</span> — Y. Kim, Y. Hwang, S. Yoon, H. Yun, K. Jung. <i>NeurIPS Workshops 2022</i>.</li>
+        </ul>
+
+        <div class="pub-year">International Journal</div>
+        <ul class="clean">
+          <li class="pub-item"><span class="pub-title">Flowlogue: A Novel Framework for Synthetic Dialogue Generation with Structured Flow from Text Passages</span> — Y. Kim, Y. Hwang, H. Bae, T. Kang, K. Jung. <i>IEEE Access, 2024</i>.</li>
+        </ul>
+
+        <div class="pub-year">Domestic Conferences &amp; Journal</div>
+        <ul class="clean">
+          <li class="pub-item"><span class="pub-title">A Study on the Evaluation Consistency of Korean LLM-as-a-Judge Models in Mathematical Problems</span> — Y. Hwang, D. Lee, J. Moon, K. Min, K. Jung. <i>KCC 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">Analysis of Stylistic Bias in Korean LLM-as-a-Judge</span> — Y. Hwang, D. Lee, J. Moon, K. Min, K. Jung. <i>KCC 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">Evaluating the Robustness of LLM-Judges to Epistemic Markers in Korean</span> — D. Lee, Y. Hwang, J. Moon, K. Min, K. Jung. <i>KCC 2025</i>.</li>
+          <li class="pub-item"><span class="pub-title">TSDG: A Framework for Generating Natural Topic-Shift Dialogue Data</span> — Y. Hwang, D. Lee, Y. Kim, K. Jung. <i>KSC 2024</i>.</li>
+          <li class="pub-item"><span class="pub-title">Error-Correction Chain-of-Thought (ECOCoT): Enhancing Accuracy in Mathematical Reasoning through Error-Correction Framework</span> — Y. Hwang, Y. Kim, D. Lee, T. Kang, H. Bae, K. Jung. <i>KSC 2024</i>.</li>
+          <li class="pub-item"><span class="pub-title">Reference-Centric QA Evaluation Leveraging Contrastive Decoding</span> — D. Lee, K. Min, Y. Hwang, J. Park, K. Jung. <i>KSC 2024</i>.</li>
+          <li class="pub-item"><span class="pub-title">KLIPScore: A Highly Human-Correlated Korean Image Captioning Metric (Oral)</span> — Y. Kim, Y. Hwang, Y. Chae, S. Yoon, K. Jung. <i>KCC 2023</i>.</li>
+          <li class="pub-item"><span class="pub-title">Thinking Fast and Slow in Multimodal Emotion Recognition Task</span> — Y. Hwang, Y. Kim, Y. Chae, K. Jung. <i>KCC 2023</i>.</li>
+          <li class="pub-item"><span class="pub-title">Improving Cross-Modal Attention via Object Detection</span> — Y. Kim, H. Yun, Y. Hwang, K. Jung. <i>KCC 2022</i>.</li>
+          <li class="pub-item"><span class="pub-title">COVID-19 Severity Prediction using Deep Transfer Learning</span> — Y. Hwang, Y. Kim, K. Jung. <i>KCC 2022</i>.</li>
+        </ul>
+      </details>
+
+      <p class="muted" style="margin-top:12px">
+        *: equal contribution. PDF/코드 링크는 준비되면 항목 뒤에 추가하세요 (예: <code>· <a href="./materials/paper.pdf">pdf</a></code>).
+      </p>
+    </section>
+
+    <!-- 경력 -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="row">
+        <div class="card">
+          <div class="kicker">Research Intern</div>
+          <div class="pub-title">Max Planck Institute for Security and Privacy (MPI-SP)</div>
+          <div class="muted">Bochum, Germany · Aug 2025 – Oct 2025</div>
+        </div>
+        <div class="card">
+          <div class="kicker">Intern</div>
+          <div class="pub-title">LGAI Research</div>
+          <div class="muted">Seoul, Republic of Korea · Aug 2022 – Oct 2022</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 학력 -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="row">
+        <div class="card">
+          <div class="pub-title">Seoul National University</div>
+          <div class="muted">Ph.D. Candidate, Interdisciplinary Program in Artificial Intelligence</div>
+          <div class="muted">Seoul, Republic of Korea · Sep 2021 – Present</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">Seoul National University</div>
+          <div class="muted">B.S., Electrical &amp; Computer Engineering (Cum Laude)</div>
+          <div class="muted">Seoul, Republic of Korea · Mar 2016 – Aug 2021</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 수상/장학 -->
+    <section id="awards">
+      <h2>Awards &amp; Scholarships</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="pub-title">National Science &amp; Technology Scholarship</div>
+          <div class="muted">Republic of Korea · 2018 – 2019</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">SNU IPAI Support Scholarship (Ph.D.)</div>
+          <div class="muted">Republic of Korea</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">SNU IPAI Support Scholarship (M.S.)</div>
+          <div class="muted">Republic of Korea</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">Winner — Research Paper Competition, SNU IPAI</div>
+          <div class="muted">Seoul, Republic of Korea · Jun 2025</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">Winner — Research Paper Competition, SNU IPAI</div>
+          <div class="muted">Seoul, Republic of Korea · Dec 2024</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">Winner — Creative Autonomous Research Competition, SNU IPAI</div>
+          <div class="muted">Seoul, Republic of Korea · Dec 2023</div>
+        </div>
+        <div class="card">
+          <div class="pub-title">Winner — ETRI Human-Understanding AI Paper Contest</div>
+          <div class="muted">Republic of Korea · Jun 2023</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 자료 -->
+    <section id="materials">
+      <h2>Materials</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+            <div>
+              <div style="font-weight:700">CV</div>
+              <div class="muted">PDF (LinkedIn/지원서 용)</div>
+            </div>
+            <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">열기</a>
+          </div>
+        </div>
+        <!-- 필요시 더 추가
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+            <div>
+              <div style="font-weight:700">Slides</div>
+              <div class="muted">최근 발표 자료</div>
+            </div>
+            <a class="btn" href="./materials/slides.pdf" target="_blank" rel="noreferrer">열기</a>
+          </div>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- 연락처 -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p style="margin:0">
+          ✉️ <a href="mailto:dpfls589@snu.ac.kr">dpfls589@snu.ac.kr</a><br/>
+          🔗 <a href="https://www.linkedin.com/in/yerin-hwang-a6445627a" target="_blank" rel="noreferrer">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Yerin Hwang · <span class="muted">Last updated: <span id="last-updated">2025-08-21</span></span></div>
+    </footer>
+  </main>
+
+  <script>
+    // 연도/수정일 자동 갱신
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const d = new Date(document.lastModified);
+    const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
+    document.getElementById('last-updated').textContent = `${y}-${m}-${day}`;
+  </script>
 </body>
 </html>

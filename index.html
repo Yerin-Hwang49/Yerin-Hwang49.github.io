@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,7 +47,7 @@
   </style>
 </head>
 <body>
-  <!-- 상단 바 -->
+  <!-- Top bar -->
   <header class="site">
     <div class="container site-inner">
       <div><a href="#top" style="font-weight:800; color:var(--fg)">Yerin Hwang</a></div>
@@ -64,7 +64,7 @@
   </header>
 
   <main id="top" class="container">
-    <!-- 히어로 -->
+    <!-- Hero -->
     <section class="hero">
       <h1>Yerin Hwang</h1>
       <p class="sub">Ph.D. Candidate · NLP &amp; LLMs</p>
@@ -86,52 +86,54 @@
       </div>
     </section>
 
-    <!-- 소개 -->
+    <!-- About -->
     <section id="about">
       <h2>About</h2>
       <div class="card">
         <p>
-          SNU MILAB 박사과정으로, 대형언어모델(LLM)의 <b>평가와 견고성(robustness)</b>을 연구합니다.
-          특히 LLM-based evaluation이 <b>epistemic markers/불확실성 표현</b>에 얼마나 민감한지 분석하고,
-          <b>LLM-as-a-Judge</b>의 신뢰성·해석가능성을 높이는 방법을 탐색합니다.
+          I am a Ph.D. candidate at SNU MILAB studying the <b>evaluation and robustness</b> of large language models (LLMs).
+          My work analyzes how LLM-based evaluators respond to <b>epistemic markers</b> and expressions of <b>uncertainty</b>,
+          and develops methods to improve the <b>reliability</b> and <b>interpretability</b> of LLM-as-a-Judge.
         </p>
         <p>
-          또한 지식 그래프를 활용한 <b>자동 대화 데이터 생성</b>과 문서 기반 <b>context-aware QA</b> 데이터셋 생성에도 관심이 있습니다.
+          Beyond evaluation, I am interested in <b>long-context reasoning</b> and <b>retrieval-augmented generation (RAG)</b>,
+          as well as <b>automatic dialogue data generation</b> using knowledge graphs and the construction of
+          <b>context-aware conversational QA</b> datasets.
         </p>
       </div>
     </section>
 
-    <!-- 하이라이트 퍼블리케이션 -->
+    <!-- Publications -->
     <section id="publications">
       <h2>Publications</h2>
 
-      <p class="kicker">Selected (최근)</p>
+      <p class="kicker">Selected (recent)</p>
       <div class="grid grid-2" style="margin-bottom:16px">
         <div class="card">
           <div class="pub-title">Fooling the LVLM Judges: Visual Biases in LVLM-Based Evaluation</div>
           <div class="muted">Y. Hwang*, D. Lee*, K. Min, T. Kang, Y. Kim, K. Jung · <i>EMNLP 2025</i></div>
-          <p class="muted" style="margin:.4rem 0 0">LVLM judge의 시각적 편향을 체계 분석.</p>
+          <p class="muted" style="margin:.4rem 0 0">We systematically characterize visual biases in LVLM-based judgment and show how they distort alignment evaluations.</p>
         </div>
         <div class="card">
           <div class="pub-title">Can You Trick the Grader? Adversarial Persuasion of LLM Judges</div>
           <div class="muted">Y. Hwang, D. Lee, T. Kang, Y. Kim, K. Jung · <i>Findings of EMNLP 2025</i></div>
-          <p class="muted" style="margin:.4rem 0 0">설득적 어택으로 LLM 심사자 판정 교란.</p>
+          <p class="muted" style="margin:.4rem 0 0">We demonstrate that persuasive perturbations can shift LLM-judge decisions and discuss practical defenses.</p>
         </div>
         <div class="card">
           <div class="pub-title">LLMs can be easily Confused by Instructional Distractions</div>
           <div class="muted">Y. Hwang, Y. Kim, J. Koo, T. Kang, H. Bae, K. Jung · <i>ACL 2025</i></div>
-          <p class="muted" style="margin:.4rem 0 0">instructional distraction에 대한 취약성 실증.</p>
+          <p class="muted" style="margin:.4rem 0 0">We reveal vulnerability to off-topic or misleading instructions and quantify their impact on task performance.</p>
         </div>
         <div class="card">
           <div class="pub-title">Are LLM-Judges Robust to Expressions of Uncertainty?</div>
           <div class="muted">D. Lee*, Y. Hwang*, Y. Kim, J. Park, K. Jung · <i>NAACL 2025</i></div>
-          <p class="muted" style="margin:.4rem 0 0">불확실성 표현(확신 표지)이 LLM 판정에 미치는 영향.</p>
+          <p class="muted" style="margin:.4rem 0 0">We measure how uncertainty expressions (e.g., hedges, confidence markers) influence LLM-based evaluation outcomes.</p>
         </div>
       </div>
 
-      <!-- 전체 목록 -->
+      <!-- Full list -->
       <details open>
-        <summary>전체 목록 보기</summary>
+        <summary>View full list</summary>
         <div style="margin-top:12px"></div>
 
         <div class="pub-year">International Conferences &amp; Workshops</div>
@@ -170,11 +172,11 @@
       </details>
 
       <p class="muted" style="margin-top:12px">
-        *: equal contribution. PDF/코드 링크는 준비되면 항목 뒤에 추가하세요 (예: <code>· <a href="./materials/paper.pdf">pdf</a></code>).
+        * equal contribution. Add PDF/code links after items when available (e.g., <code>· <a href="./materials/paper.pdf">pdf</a></code>).
       </p>
     </section>
 
-    <!-- 경력 -->
+    <!-- Experience -->
     <section id="experience">
       <h2>Experience</h2>
       <div class="row">
@@ -191,7 +193,7 @@
       </div>
     </section>
 
-    <!-- 학력 -->
+    <!-- Education -->
     <section id="education">
       <h2>Education</h2>
       <div class="row">
@@ -208,7 +210,7 @@
       </div>
     </section>
 
-    <!-- 수상/장학 -->
+    <!-- Awards -->
     <section id="awards">
       <h2>Awards &amp; Scholarships</h2>
       <div class="grid grid-2">
@@ -243,7 +245,7 @@
       </div>
     </section>
 
-    <!-- 자료 -->
+    <!-- Materials -->
     <section id="materials">
       <h2>Materials</h2>
       <div class="grid grid-2">
@@ -251,26 +253,15 @@
           <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
             <div>
               <div style="font-weight:700">CV</div>
-              <div class="muted">PDF (LinkedIn/지원서 용)</div>
+              <div class="muted">PDF (for LinkedIn / applications)</div>
             </div>
-            <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">열기</a>
+            <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">Open</a>
           </div>
         </div>
-        <!-- 필요시 더 추가
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
-            <div>
-              <div style="font-weight:700">Slides</div>
-              <div class="muted">최근 발표 자료</div>
-            </div>
-            <a class="btn" href="./materials/slides.pdf" target="_blank" rel="noreferrer">열기</a>
-          </div>
-        </div>
-        -->
       </div>
     </section>
 
-    <!-- 연락처 -->
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <div class="card">
@@ -287,7 +278,7 @@
   </main>
 
   <script>
-    // 연도/수정일 자동 갱신
+    // Auto-update year and last modified date
     document.getElementById('year').textContent = new Date().getFullYear();
     const d = new Date(document.lastModified);
     const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');

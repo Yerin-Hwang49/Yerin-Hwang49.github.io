@@ -30,7 +30,25 @@
     h2{margin:0 0 12px; font-size: clamp(20px, 3vw, 26px)}
     .card{border:1px solid var(--line); border-radius:14px; padding:16px}
     ul.clean{list-style:none; padding:0; margin:0}
-    .pub-year{font-weight:700; margin:20px 0 12px}
+    .pub-year{
+      position: relative;
+      margin: 34px 0 12px;
+      padding-top: 10px;           /* 제목 위에 여백 */
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--fg);
+    }
+    
+    .pub-year::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;                      /* 줄의 위치 (위쪽) */
+      width: 72px;                 /* 줄 길이 */
+      height: 4px;                 /* 줄 두께 */
+      border-radius: 4px;
+      background: var(--accent);   /* 포인트 색상 */
+    }
     .pub-item{margin:10px 0}
     .pub-title{font-weight:700}
     .btn{display:inline-block; padding:.6rem .9rem; border:1px solid var(--line); border-radius:10px}

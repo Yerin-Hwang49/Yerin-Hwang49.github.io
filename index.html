@@ -44,6 +44,9 @@
     .kicker{font-weight:700; letter-spacing:.02em; color:var(--muted)}
     .row{display:flex; gap:14px; flex-wrap:wrap}
     .row > div{flex:1 1 280px}
+    .avatar{ width:140px; height:140px; border-radius:9999px; object-fit:cover; border:1px solid var(--line); box-shadow:0 2px 8px rgba(0,0,0,.05) }
+    .hero-head{ display:flex; align-items:center; gap:20px; flex-wrap:wrap }
+    .hero-text{ min-width:260px }
   </style>
 </head>
 <body>
@@ -64,24 +67,29 @@
   </header>
 
   <main id="top" class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Yerin Hwang</h1>
-      <p class="sub">Ph.D. Candidate · NLP &amp; LLMs</p>
-      <p class="muted">Seoul National University, Seoul, Republic of Korea</p>
-      <p>
-        <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">📄 CV</a>
-        <a class="btn" href="mailto:dpfls589@snu.ac.kr">✉️ Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/yerin-hwang-a6445627a" target="_blank" rel="noreferrer">in LinkedIn</a>
-      </p>
-      <div style="margin-top:8px">
-        <span class="chip">LLM</span>
-        <span class="chip">LLM Evaluation</span>
-        <span class="chip">LLM-as-a-Judge</span>
-        <span class="chip">Bias &amp; Robustness</span>
-        <span class="chip">Dialogue Generation</span>
+  <section class="hero">
+    <div class="hero-head">
+      <img class="avatar" src="./materials/photo_yerinhwang.jpg" alt="Portrait of Yerin Hwang" width="140" height="140" loading="lazy">
+      <div class="hero-text">
+        <h1>Yerin Hwang</h1>
+        <p class="sub">Ph.D. Candidate · NLP &amp; LLMs</p>
+        <p class="muted">Seoul National University, Seoul, Republic of Korea</p>
+        <p>
+          <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">📄 CV</a>
+          <a class="btn" href="mailto:dpfls589@snu.ac.kr">✉️ Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/yerin-hwang-a6445627a" target="_blank" rel="noreferrer">in LinkedIn</a>
+        </p>
+        <div style="margin-top:8px">
+          <span class="chip">LLM</span>
+          <span class="chip">LLM Evaluation</span>
+          <span class="chip">LLM-as-a-Judge</span>
+          <span class="chip">Bias &amp; Robustness</span>
+          <span class="chip">Dialogue Generation</span>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
+
 
     <!-- About -->
     <section id="about">

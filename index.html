@@ -71,6 +71,11 @@
       background:rgba(11,61,145,.06); color:var(--accent); font-weight:600;
     }
     .badge-job a{ color:inherit; text-decoration:underline; }
+    .me{
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
   </style>
 </head>
 <body>
@@ -315,6 +320,36 @@
     const d = new Date(document.lastModified);
     const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
     document.getElementById('last-updated').textContent = `${y}-${m}-${day}`;
+
+    (() => {
+      const root = document.getElementById('publications');
+      if (!root) return;
+
+      const re = /\b(Y(?:\.|\s)?\s*Hwang|Yerin\s+Hwang)\b/gi;
+
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      const hits = [];
+      let n;
+      while ((n = walker.nextNode())) {
+        if (re.test(n.nodeValue)) hits.push(n);
+      }
+
+      hits.forEach(tn => {
+        const frag = document.createDocumentFragment();
+        const parts = tn.nodeValue.split(re); 
+        for (let i = 0; i < parts.length; i++) {
+          if (i % 2 === 0) {
+            if (parts[i]) frag.appendChild(document.createTextNode(parts[i]));
+          } else {
+            const span = document.createElement('span');
+            span.className = 'me';
+            span.textContent = parts[i]; 
+            frag.appendChild(span);
+          }
+        }
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
   </script>
 </body>
 </html>

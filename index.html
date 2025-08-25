@@ -6,18 +6,28 @@
   <title>Yerin Hwang — NLP & LLMs</title>
   <meta name="description" content="Yerin Hwang — NLP & LLMs, Publications, CV, Contact" />
   <meta name="color-scheme" content="light dark" />
+
+  <!-- Fonts: Inter (Latin) + Noto Sans KR (Korean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --accent:#0B3D91; --fg:#0f172a; --muted:#475569; --line:#e2e8f0; --bg:#fff;
-      /* readable KR+EN system font stack */
-      --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-                   "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
-                   "Helvetica Neue", Arial, sans-serif,
-                   "Apple Color Emoji","Segoe UI Emoji";
+      --font-body: "Inter","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
       --font-heading: var(--font-body);
     }
     *{box-sizing:border-box}
-    body{margin:0; font-family: var(--font-body); line-height:1.65; color:var(--fg); background:var(--bg)}
+    body{
+      margin:0;
+      font-family: var(--font-body);
+      line-height:1.65;
+      color:var(--fg);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width: 980px; margin:0 auto; padding:24px}
@@ -45,7 +55,6 @@
       font-size: 1.05rem;
       color: var(--fg);
     }
-    
     .pub-year::before{
       content: "";
       position: absolute;

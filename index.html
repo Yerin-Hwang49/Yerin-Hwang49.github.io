@@ -7,106 +7,146 @@
   <meta name="description" content="Yerin Hwang — NLP & LLMs, Publications, CV, Contact" />
   <meta name="color-scheme" content="light dark" />
 
-  <!-- Fonts: Inter (Latin) + Noto Sans KR (Korean) -->
+  <!-- Fonts: Times New Roman + Noto Serif KR (Korean serif fallback) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --accent:#0B3D91; --fg:#0f172a; --muted:#475569; --line:#e2e8f0; --bg:#fff;
-      --font-body: "Inter","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
-      --font-heading: var(--font-body);
+      --font-body:"Times New Roman","Noto Serif KR","Malgun Gothic","Apple SD Gothic Neo",serif;
+      --font-heading:"Times New Roman","Noto Serif KR","Malgun Gothic",serif;
+      --header-h:56px;
     }
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family: var(--font-body);
-      line-height:1.65;
-      color:var(--fg);
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      margin:0; font-family:var(--font-body); font-size:17px; line-height:1.7;
+      color:var(--fg); background:var(--bg);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width: 980px; margin:0 auto; padding:24px}
+    .container{max-width:980px; margin:0 auto; padding:24px}
+
+    /* Header */
     header.site{
-      position: sticky; top:0; background:rgba(255,255,255,.85); backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line); z-index:10;
+      position:sticky; top:0; z-index:70;
+      height:var(--header-h);
+      background:#fff;                 /* 흐림 방지: 완전 불투명 배경 */
+      backdrop-filter:none;             /* 흐림 효과 제거 */
+      border-bottom:1px solid var(--line);
+      transition: background .2s ease;
     }
-    .site-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    nav a{margin-left:16px; font-weight:600; color:var(--muted)}
-    nav a:hover{color:var(--accent)}
-    .hero{padding: 40px 0 12px}
-    .hero h1{margin:.2rem 0; font-size: clamp(28px, 4vw, 44px)}
-    h1,h2,h3{font-family: var(--font-heading)}
-    .sub{color:var(--muted)}
+    .site-inner{height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{font-weight:800; color:var(--fg); font-size:clamp(18px,4.2vw,22px)}
+    .monogram{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:34px; height:34px; margin-right:8px;
+      position:relative; top:-3px;     /* YRH 원형을 위로 5px 이동 */
+
+      /* 블루톤 원형 그라디언트 */
+      background: radial-gradient(circle at 35% 35%, #5fa8ff, #0b3d91 85%);
+      color:#fff;
+
+      font-size:12px;                  /* 텍스트 작게 */
+      font-weight:700; letter-spacing:-0.3px;
+      border-radius:50%;
+      box-shadow:0 0 8px rgba(11,61,145,0.25);
+      user-select:none;
+    }
+    nav.nav{display:flex; align-items:center}
+    nav.nav a{margin-left:18px; font-weight:600; color:var(--muted)}
+    nav.nav a:hover{color:var(--accent)}
+    .menu-btn{
+      display:none; border:1px solid var(--line); background:#fff;
+      border-radius:10px; padding:6px 8px; line-height:0;
+    }
+    .menu-btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+    /* Main spacing so content isn't covered by sticky header */
+    main{padding-top:calc(var(--header-h) + 8px)}
+
+    /* Hero */
+    .hero{padding:40px 0 12px}
+    .hero h1{margin:.2rem 0; font-family:var(--font-heading); font-size:clamp(30px,4vw,46px); font-weight:700; letter-spacing:.5px}
+    h1,h2,h3{font-family:var(--font-heading)}
+    .sub{color:var(--muted); font-style:italic}
+
+    /* Chips / Cards / Sections */
     .chip{display:inline-block; padding:.25rem .6rem; border:1px solid var(--line); border-radius:999px; margin-right:.4rem; margin-bottom:.4rem; font-size:.9rem}
-    section{padding: 28px 0}
-    h2{margin:0 0 12px; font-size: clamp(20px, 3vw, 26px)}
-    .card{border:1px solid var(--line); border-radius:14px; padding:16px}
+    section{padding:28px 0}
+    h2{margin:0 0 12px; font-size:clamp(22px,3vw,28px); font-weight:700; border-bottom:2px solid var(--accent); padding-bottom:4px; letter-spacing:.3px}
+    .card{border:1px solid var(--line); border-radius:14px; padding:16px; background:#fafafa}
     ul.clean{list-style:none; padding:0; margin:0}
-    .pub-year{
-      position: relative;
-      margin: 34px 0 12px;
-      padding-top: 10px;      
-      font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--fg);
-    }
-    .pub-year::before{
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;            
-      width: 72px;          
-      height: 4px;            
-      border-radius: 4px;
-      background: var(--accent);  
-    }
+    .btn{display:inline-block; padding:.6rem .9rem; border:1px solid var(--line); border-radius:10px; background:#fff}
+    .btn:hover{background:#f2f5ff}
+
+    /* Publications */
+    .pub-year{position:relative; margin:34px 0 12px; padding-top:10px; font-weight:700; font-size:1.05rem; color:var(--fg); font-family:var(--font-heading)}
+    .pub-year::before{content:""; position:absolute; left:0; top:0; width:72px; height:4px; border-radius:4px; background:var(--accent)}
     .pub-item{margin:10px 0}
-    .pub-title{font-weight:700; font-family: var(--font-heading)}
-    .btn{display:inline-block; padding:.6rem .9rem; border:1px solid var(--line); border-radius:10px}
+    .pub-title{font-weight:700; font-family:var(--font-heading)}
+    .kicker{font-weight:700; letter-spacing:.02em; color:var(--muted)}
+    .muted{color:var(--muted)}
     .grid{display:grid; gap:16px}
     .grid-2{grid-template-columns:1fr}
-    @media (min-width: 860px){ .grid-2{grid-template-columns:1fr 1fr} }
-    footer{border-top:1px solid var(--line); padding:16px 0; color:var(--muted); font-size:.95rem}
-    details{border:1px dashed var(--line); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,0.02)}
-    details>summary{cursor:pointer; font-weight:600}
-    .muted{color:var(--muted)}
-    .kicker{font-weight:700; letter-spacing:.02em; color:var(--muted)}
+    @media (min-width:860px){ .grid-2{grid-template-columns:1fr 1fr} }
     .row{display:flex; gap:14px; flex-wrap:wrap}
-    .row > div{flex:1 1 280px}
-    .avatar{
-      width:132px; height:132px; 
-      border-radius:9999px;
-      object-fit:cover;
-      object-position: 50% 38%;
-      border:1px solid var(--line);
-      box-shadow:0 2px 8px rgba(0,0,0,.05)
+    .row>div{flex:1 1 280px}
+
+    /* Avatar / Hero layout */
+    .avatar{width:132px; height:132px; border-radius:9999px; object-fit:cover; object-position:50% 38%; border:1px solid var(--line); box-shadow:0 2px 8px rgba(0,0,0,.05)}
+    .hero-head{display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap}
+    .hero-text{min-width:260px}
+    .badge-job{display:inline-block; margin-top:6px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; font-size:.92rem; background:rgba(11,61,145,.06); color:var(--accent); font-weight:600}
+    .badge-job a{color:inherit; text-decoration:underline}
+    .me{font-weight:800; text-decoration:underline; text-underline-offset:2px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); padding:16px 0; color:var(--muted); font-size:.95rem; text-align:center}
+
+    /* Mobile menu: overlay panel */
+    .nav-overlay{position:fixed; inset:0; background:rgba(0,0,0,.12); backdrop-filter:none !important; -webkit-backdrop-filter: none !important; z-index:60}
+    header.site:not(.is-open) .nav-overlay{display:none}
+
+    @media (max-width:860px){
+      .menu-btn{display:inline-flex; align-items:center; justify-content:center}
+      nav.nav{
+        position:fixed; left:0; right:0; top:var(--header-h);
+        display:grid; gap:8px; padding:12px 16px 18px; background:#fff; border-bottom:1px solid var(--line);
+        transform:translateY(-12px); opacity:0; visibility:hidden; pointer-events:none;
+        transition:transform .18s ease, opacity .18s ease, visibility 0s .18s; z-index:65;
+      }
+      nav.nav a{margin:0; padding:10px 6px; border-radius:8px; font-weight:700; color:var(--fg)}
+      nav.nav a:active{background:#f5f7ff}
+      header.site.is-open nav.nav{transform:translateY(0); opacity:1; visibility:visible; pointer-events:auto; transition:transform .18s ease, opacity .18s ease}
+      .site-inner{gap:8px}
     }
-    .hero-head{ display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap }
-    .hero-text{ min-width:260px }
-    .badge-job{
-      display:inline-block; margin-top:6px; padding:4px 10px;
-      border:1px solid var(--line); border-radius:999px; font-size:.92rem;
-      background:rgba(11,61,145,.06); color:var(--accent); font-weight:600;
-    }
-    .badge-job a{ color:inherit; text-decoration:underline; }
-    .me{
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 2px;
+
+    @media (prefers-reduced-motion:reduce){
+      nav.nav{transition:none}
     }
   </style>
 </head>
+
 <body>
-  <!-- Top bar -->
-  <header class="site">
+  <!-- Header -->
+  <header class="site" role="banner">
     <div class="container site-inner">
-      <div><a href="#top" style="font-weight:800; color:var(--fg)">Yerin Hwang</a></div>
-      <nav>
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="monogram" aria-hidden="true">YRH</span> Yerin Hwang
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="menu-btn" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <!-- Navigation -->
+      <nav id="site-nav" class="nav" role="navigation">
         <a href="#about">About</a>
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
@@ -116,46 +156,46 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
+    <div class="nav-overlay" hidden></div>
   </header>
 
   <main id="top" class="container">
-  <section class="hero">
-    <div class="hero-head">
-      <img class="avatar" src="./materials/photo_yerinhwang.jpg" alt="Portrait of Yerin Hwang" width="140" height="140" loading="lazy">
-      <div class="hero-text">
-        <h1>Yerin Hwang</h1>
-        <p class="sub">Ph.D. Candidate · NLP &amp; LLMs</p>
-        <p class="muted">Seoul National University, Seoul, Republic of Korea</p>
-        <p>
-          <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">CV</a>
-          <a class="btn" href="mailto:dpfls589@snu.ac.kr">Email</a>
-          <a class="btn" href="https://www.linkedin.com/in/yerin-hwang-a6445627a" target="_blank" rel="noreferrer">LinkedIn</a>
-        </p>
-</p>
-        <div style="margin-top:8px">
-          <span class="chip">LLM</span>
-          <span class="chip">LLM Evaluation</span>
-          <span class="chip">LLM-as-a-Judge</span>
-          <span class="chip">Bias &amp; Robustness</span>
-          <span class="chip">Dialogue Generation</span>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-head">
+        <img class="avatar" src="https://pyon.kr/lynnie/img/lynnie_512.jpg" alt="Portrait of Yerin Hwang" width="140" height="140" loading="lazy">
+        <div class="hero-text">
+          <h1>Yerin Hwang</h1>
+          <p class="sub">Ph.D. Candidate · NLP &amp; LLMs</p>
+          <p class="muted">Seoul National University, Seoul, Republic of Korea</p>
+          <p>
+            <a class="btn" href="./materials/CV_YERINHWANG.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a class="btn" href="mailto:dpfls589@snu.ac.kr">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/yerin-hwang-a6445627a" target="_blank" rel="noreferrer">LinkedIn</a>
+          </p>
+          <div style="margin-top:8px">
+            <span class="chip">LLM</span>
+            <span class="chip">LLM Evaluation</span>
+            <span class="chip">LLM-as-a-Judge</span>
+            <span class="chip">Bias &amp; Robustness</span>
+            <span class="chip">Dialogue Generation</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
 
     <!-- About -->
     <section id="about">
       <h2>About</h2>
       <div class="card">
-      <p>
-        I am a Ph.D. candidate at SNU MILAB focusing on <b>LLM evaluation</b>—especially <b>bias</b> and <b>robustness</b>. 
-        I study how LLM-as-a-Judge behaves under framing and uncertainty cues, and I design methods and protocols that make judgments more <b>reliable</b> and <b>interpretable</b>.
-      </p>
-      <p>
-        Beyond evaluation, I work on <b>automatic data generation</b> for benchmarking and training (e.g., dialogue and evaluation datasets), 
-        and I am actively engaged in <b>Korean NLP</b>, including building Korean-specific datasets and metrics and analyzing model behavior in Korean settings.
-      </p>
+        <p>
+          I am a Ph.D. candidate at SNU MILAB focusing on <b>LLM evaluation</b>—especially <b>bias</b> and <b>robustness</b>.
+          I study how LLM-as-a-Judge behaves under framing and uncertainty cues, and I design methods and protocols that make judgments more <b>reliable</b> and <b>interpretable</b>.
+        </p>
+        <p>
+          Beyond evaluation, I work on <b>automatic data generation</b> for benchmarking and training (e.g., dialogue and evaluation datasets),
+          and I am actively engaged in <b>Korean NLP</b>, including building Korean-specific datasets and metrics and analyzing model behavior in Korean settings.
+        </p>
       </div>
     </section>
 
@@ -165,10 +205,10 @@
 
       <p class="kicker">Selected (recent)</p>
       <div class="grid grid-2" style="margin-bottom:16px">
-          <div class="card">
+        <div class="card">
           <div class="pub-title">LLMs can be easily Confused by Instructional Distractions</div>
           <div class="muted">Y. Hwang, Y. Kim, J. Koo, T. Kang, H. Bae, K. Jung · <i>ACL 2025</i></div>
-        <p class="muted" style="margin:.4rem 0 0">We formalize <i>instructional distraction</i>—inputs that look like instructions— and show that even advanced LLMs frequently follow the distracting input rather than the user’s true instruction.</p>
+          <p class="muted" style="margin:.4rem 0 0">We formalize <i>instructional distraction</i>—inputs that look like instructions—and show that even advanced LLMs frequently follow the distracting input rather than the user’s true instruction.</p>
         </div>
         <div class="card">
           <div class="pub-title">Fooling the LVLM Judges: Visual Biases in LVLM-Based Evaluation</div>
@@ -227,9 +267,7 @@
         </ul>
       </details>
 
-      <p class="muted" style="margin-top:12px">
-        * equal contribution.
-      </p>
+      <p class="muted" style="margin-top:12px">* equal contribution.</p>
     </section>
 
     <!-- Experience -->
@@ -334,40 +372,65 @@
   </main>
 
   <script>
-    // Auto-update year and last modified date
+    // Footer dates
     document.getElementById('year').textContent = new Date().getFullYear();
     const d = new Date(document.lastModified);
     const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
     document.getElementById('last-updated').textContent = `${y}-${m}-${day}`;
 
+    // Highlight "Yerin Hwang" in publications
     (() => {
       const root = document.getElementById('publications');
       if (!root) return;
-
       const re = /\b(Y(?:\.|\s)?\s*Hwang|Yerin\s+Hwang)\b/gi;
-
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
       const hits = [];
       let n;
-      while ((n = walker.nextNode())) {
-        if (re.test(n.nodeValue)) hits.push(n);
-      }
-
+      while ((n = walker.nextNode())) if (re.test(n.nodeValue)) hits.push(n);
       hits.forEach(tn => {
         const frag = document.createDocumentFragment();
-        const parts = tn.nodeValue.split(re); 
+        const parts = tn.nodeValue.split(re);
         for (let i = 0; i < parts.length; i++) {
-          if (i % 2 === 0) {
-            if (parts[i]) frag.appendChild(document.createTextNode(parts[i]));
-          } else {
-            const span = document.createElement('span');
-            span.className = 'me';
-            span.textContent = parts[i]; 
-            frag.appendChild(span);
-          }
+          if (i % 2 === 0) { if (parts[i]) frag.appendChild(document.createTextNode(parts[i])); }
+          else { const span = document.createElement('span'); span.className = 'me'; span.textContent = parts[i]; frag.appendChild(span); }
         }
         tn.parentNode.replaceChild(frag, tn);
       });
+    })();
+
+    // Mobile nav toggle
+    (function(){
+      const header = document.querySelector('header.site');
+      const btn = header?.querySelector('.menu-btn');
+      const nav = header?.querySelector('#site-nav');
+      const overlay = header?.querySelector('.nav-overlay');
+
+      function closeMenu(){
+        header?.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded','false');
+        overlay?.setAttribute('hidden','');
+        document.body.style.overflow='';
+      }
+      function openMenu(){
+        header?.classList.add('is-open');
+        btn?.setAttribute('aria-expanded','true');
+        overlay?.removeAttribute('hidden');
+        document.body.style.overflow='hidden';
+      }
+      btn?.addEventListener('click', () => {
+        (btn.getAttribute('aria-expanded') === 'true') ? closeMenu() : openMenu();
+      });
+      overlay?.addEventListener('click', closeMenu);
+
+      // 메뉴 항목 클릭 시 자동 닫기
+      nav?.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setTimeout(closeMenu, 120));
+      });
+
+      // 안전 기본 상태
+      closeMenu();
+      window.addEventListener('resize', () => { if (window.innerWidth > 860) closeMenu(); });
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
     })();
   </script>
 </body>
